@@ -6,6 +6,9 @@ SHELL ["/bin/sh", "-c"]
 # Default to supporting utf-8
 ENV LANG=C.UTF-8
 
+ARG HTTP_PROXY
+ARG HTTPS_PROXY=${HTTP_PROXY}
+
 # Explicitly set supported locales
 COPY locale.gen /etc/locale.gen
 
