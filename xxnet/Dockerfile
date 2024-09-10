@@ -1,6 +1,11 @@
 
 FROM python:3-alpine
 
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
+ARG ALL_PROXY
+ARG NO_PROXY
+
 ARG VERSION
 
 RUN wget -O /XX-Net.zip https://github.com/XX-net/XX-Net/releases/download/${VERSION}/XX-Net-linux-${VERSION}.zip \
