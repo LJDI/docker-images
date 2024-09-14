@@ -1,5 +1,5 @@
 
-FROM python:3-alpine
+FROM python:3.10-alpine
 
 ARG HTTP_PROXY
 ARG HTTPS_PROXY
@@ -9,6 +9,7 @@ ARG NO_PROXY
 ARG VERSION
 
 RUN apk --quiet --no-cache add wget iproute2 \
+    && pip -q install setuptools \
     && wget -qO /tmp/XX-Net.zip https://github.com/XX-net/XX-Net/releases/download/${VERSION}/XX-Net-linux-${VERSION}.zip \
     && unzip -q /tmp/XX-Net.zip -x "XX-Net/python3/*" "XX-Net/SwitchyOmega/*" \
     && rm /tmp/XX-Net.zip
