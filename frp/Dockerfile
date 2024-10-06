@@ -5,6 +5,11 @@ ARG BASE_DOWNLOAD_URL="https://github.com/fatedier/frp/releases/download"
 ARG VERSION
 ARG TARGETPLATFORM
 
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
+ARG ALL_PROXY
+ARG NO_PROXY
+
 RUN case "${TARGETPLATFORM}" in \
       "amd64") DOWNLOAD_URL="${BASE_DOWNLOAD_URL}/v${VERSION}/frp_${VERSION}_linux_amd64.tar.gz" ;; \
       "arm")   DOWNLOAD_URL="${BASE_DOWNLOAD_URL}/v${VERSION}/frp_${VERSION}_linux_arm.tar.gz" ;; \
