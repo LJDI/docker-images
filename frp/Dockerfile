@@ -6,10 +6,10 @@ ARG VERSION
 ARG TARGETPLATFORM
 
 RUN case "${TARGETPLATFORM}" in \
-      "linux/amd64") DOWNLOAD_URL="${BASE_DOWNLOAD_URL}/v${VERSION}/frp_${VERSION}_linux_amd64.tar.gz" ;; \
-      "linux/arm")   DOWNLOAD_URL="${BASE_DOWNLOAD_URL}/v${VERSION}/frp_${VERSION}_linux_arm.tar.gz" ;; \
-      "linux/armhf") DOWNLOAD_URL="${BASE_DOWNLOAD_URL}/v${VERSION}/frp_${VERSION}_linux_armhf.tar.gz" ;; \
-      "linux/arm64") DOWNLOAD_URL="${BASE_DOWNLOAD_URL}/v${VERSION}/frp_${VERSION}_linux_arm64.tar.gz" ;; \
+      "amd64") DOWNLOAD_URL="${BASE_DOWNLOAD_URL}/v${VERSION}/frp_${VERSION}_linux_amd64.tar.gz" ;; \
+      "arm")   DOWNLOAD_URL="${BASE_DOWNLOAD_URL}/v${VERSION}/frp_${VERSION}_linux_arm.tar.gz" ;; \
+      "armhf") DOWNLOAD_URL="${BASE_DOWNLOAD_URL}/v${VERSION}/frp_${VERSION}_linux_armhf.tar.gz" ;; \
+      "arm64") DOWNLOAD_URL="${BASE_DOWNLOAD_URL}/v${VERSION}/frp_${VERSION}_linux_arm64.tar.gz" ;; \
     *)               echo "Unsupported platform: ${TARGETPLATFORM}" && exit 1 ;; \
     esac && \
     echo "Downloading from ${DOWNLOAD_URL}" && \
