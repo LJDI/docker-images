@@ -1,5 +1,10 @@
 FROM alpine
 
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
+ARG ALL_PROXY
+ARG NO_PROXY
+
 ARG BASE_DOWNLOAD_URL="https://github.com/fatedier/frp/releases/download"
 
 ARG VERSION
@@ -19,7 +24,8 @@ RUN case "${TARGETPLATFORM}" in \
     esac && \
     echo "Downloading from ${DOWNLOAD_URL}" && \
     mkdir /etc/frp && \
-    wget "${DOWNLOAD_URL}" -O - | tar -zxf - --strip-components=1 -C /etc/frp && \
+    apk add --no-cache wget && \
+    wget -O - "${DOWNLOAD_URL}" | tar -zxf - --strip-components=1 -C /etc/frp && \
     mv /etc/frp/frpc /usr/local/bin && \
     mv /etc/frp/frps /usr/local/bin && \
     echo "Frp installed"
